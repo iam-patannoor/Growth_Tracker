@@ -1,0 +1,11 @@
+FROM Pyhton as first
+MAINTAINER noor
+LABEL 
+EXPOSE
+RUN pip install
+COPY . .
+
+FROM first as final
+RUN pip install --production
+COPY . .
+CMD ["app.py", "python"]
